@@ -1,12 +1,6 @@
 #  Análisis de letras de canciones mediante inteligencia artificial generativa
 
-![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)
-![Streamlit](https://img.shields.io/badge/Streamlit-App-FF4B4B.svg)
-![NLP](https://img.shields.io/badge/NLP-spaCy%20%7C%20Transformers-green.svg)
-![LLM](https://img.shields.io/badge/LLM-Llama%203.1-orange.svg)
-![License](https://img.shields.io/badge/License-MIT-lightgrey.svg)
-
-Este repositorio contiene el código fuente y la investigación del **Trabajo de Fin de Grado** en Inteligencia Artificial. Consiste en un pipeline integral de *Data Engineering* e *Inteligencia Artificial* diseñado para extraer, procesar, analizar y comparar letras de canciones a nivel léxico y semántico.
+Este repositorio contiene el código fuente y la investigación del **Trabajo de Fin de Grado** en Inteligencia Artificial. Consiste en un sistema diseñado para extraer, procesar, analizar y comparar letras de canciones.
 
 ---
 
@@ -14,10 +8,10 @@ Este repositorio contiene el código fuente y la investigación del **Trabajo de
 
 El sistema automatiza la recolección de letras de canciones mediante la API de Genius y aplica un enfoque de IA en múltiples capas:
 
-1. **Ingeniería de datos y NLP clásico:** Limpieza de metadatos, lematización de textos mediante `spaCy` y extracción de métricas de complejidad léxica como el *Type-Token Ratio* y el índice *Flesch-Kincaid* usando `textstat`.
-2. **Deep Learning:** Análisis de sentimiento dinámico a través de ventanas deslizantes y detección de emociones utilizando `RoBERTa`, además de clasificación temática *Zero-Shot* mediante `BART`.
-3. **Machine Learning no supervisado:** Agrupación semántica de canciones implementando `BERTopic` con reducción de dimensionalidad matemática.
-4. **IA Generativa:** Integración con la API de Groq. Tras realizar un riguroso *benchmark* de latencia y disponibilidad, se implementa **Llama 3.1 (8B)** para actuar como auditor de emociones y redactor de análisis literarios.
+1. **Procesamiento del lenguaje natural:** Limpieza de metadatos, lematización de textos mediante `spaCy` y extracción de métricas de complejidad léxica como el *Type-Token Ratio* y el índice *Flesch-Kincaid* usando `textstat`.
+2. **Aprendizaje profundo:** Análisis de sentimiento dinámico a través de ventanas deslizantes y detección de emociones utilizando `RoBERTa`, además de clasificación temática *Zero-Shot* mediante `BART`.
+3. **Aprendizaje automático no supervisado:** Agrupación semántica de canciones implementando `BERTopic` con reducción de dimensionalidad matemática.
+4. **IA Generativa:** Integración con la API de Groq, con la que se implementa **Llama 3.1 (8B)** para actuar como auditor de emociones y redactor de análisis literarios.
 
 ---
 
@@ -25,17 +19,8 @@ El sistema automatiza la recolección de letras de canciones mediante la API de 
 
 El proyecto ha sido diseñado bajo un paradigma de separación de responsabilidades para garantizar su escalabilidad en despliegues en la nube:
 
-* **Backend (`main.py`):** Motor de procesamiento. Extrae los datos y ejecuta los Transformers, generando un Data Mart estático en formato `.csv`.
-* **Frontend (`app.py`):** Interfaz web desarrollada en Streamlit. No ejecuta modelos de Machine Learning, sino que consume los resultados procesados, permitiendo un despliegue en la nube rápido y con bajo consumo de memoria RAM.
-
----
-
-## Interfaz web
-
-<!-- añadir capturas de pantalla de la interfaz web -->
-
-<!-- ![imagen1](ruta_a_la_imagen_1.png) -->
-<!-- *Descripción de la imagen 1* -->
+* **Backend (`main.py`):** Motor de procesamiento, extrae los datos y ejecuta los Transformers.
+* **Frontend (`app.py`):** Interfaz web desarrollada en Streamlit, consume los resultados procesados y permite un despliegue en la nube rápido y con bajo consumo de memoria RAM.
 
 ---
 
@@ -69,8 +54,8 @@ El proyecto ha sido diseñado bajo un paradigma de separación de responsabilida
 1. Clonar el repositorio
 
 ```bash
-git clone [https://github.com/](https://github.com/)[TU_USUARIO]/[NOMBRE_DEL_REPOSITORIO].git
-cd [NOMBRE_DEL_REPOSITORIO]
+git clone [https://github.com/](https://github.com/)andreaavarelaa/tfg.git
+cd tfg
 ```
 
 2. Crear un entorno virtual e instalar dependencias
@@ -105,7 +90,7 @@ Para interactuar con la interfaz web, ejecuta:
 streamlit run app.py
 ```
 
-Para procesar un nuevo artista hay dos opciones, directamente desde la interfaz web (desarrollar esto), o ejecutando el siguiente comando:
+Para procesar un nuevo artista hay dos opciones, directamente desde la interfaz web, o ejecutando el siguiente comando:
 
 ```bash
 python main.py --artist "nombre del artista" --songs 300 --email "correo electrónico al que quieres que llegue el aviso cuando termine de procesarse"
