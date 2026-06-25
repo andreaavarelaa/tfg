@@ -54,7 +54,7 @@ El proyecto ha sido diseñado bajo un paradigma de separación de responsabilida
 1. Clonar el repositorio
 
 ```bash
-git clone [https://github.com/](https://github.com/)andreaavarelaa/tfg.git
+git clone https://github.com/andreaavarelaa/tfg.git
 cd tfg
 ```
 
