@@ -1,0 +1,25 @@
+beautifulsoup4
+bertopic
+groq
+ipykernel
+ipywidgets
+jupyter
+lyricsgenius
+matplotlib
+numpy
+pandas
+python-dotenv
+pytorch
+requests
+scikit-learn
+seaborn
+sentence-transformers
+spacy
+streamlit
+textblob
+textstat
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch
+tqdm
+transformers
+wordcloud
